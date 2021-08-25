@@ -7,7 +7,7 @@ class EsQueryStringParser:
     def __init__(self) -> None:
         pass
 
-    def validate(string: str) -> bool:
+    def validate(self, string: str) -> bool:
         try:
             parser(string)
         except Exception as e:
