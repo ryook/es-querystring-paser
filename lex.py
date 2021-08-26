@@ -8,6 +8,9 @@ tokens = (
     'DIVIDE',
     'LPAREN',
     'RPAREN',
+    'AND',
+    'OR',
+    'NOT',
 )
 
 t_PLUS = r'\+'
@@ -16,6 +19,9 @@ t_TIMES = r'\*'
 t_DIVIDE = r'/'
 t_LPAREN = r'\('
 t_RPAREN = r'\)'
+t_AND = r'AND'
+t_OR = r'OR'
+t_NOT = r'NOT'
 
 def t_NUMBER(t):
     r'\d+'
@@ -35,8 +41,7 @@ def t_error(t):
 lexer = lex.lex()
 
 data = '''
-3 + 4 * 10
-  + -20 * 2
+A OR B AND (C AND D)
 '''
 
 lexer.input(data)
@@ -46,3 +51,8 @@ while True:
     if not tok:
         break
     print(tok)
+    print(tok.type)
+    print(tok.value)
+    print(tok.lineno)
+    print(tok.lexpos)
+
